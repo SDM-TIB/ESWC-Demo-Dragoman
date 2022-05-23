@@ -45,6 +45,32 @@
 ##########################################################################################
 
 <disorder_function_1>
+    rr:termType rr:IRI;
+    
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant sdmkgc:concat2
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate sdmkgc:value1;
+            rr:objectMap [ 
+                rr:constant "https://github.com/SDM-TIB/KGC/entity/";
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate sdmkgc:value2;
+            rr:objectMap <disorder_function_2> ;
+        ];    
+    ].
+
+<disorder_function_2>
+
     fnml:functionValue [
         rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample.csv";
         rml:referenceFormulation ql:CSV 
@@ -57,12 +83,11 @@
         ];
         rr:predicateObjectMap [
             rr:predicate sdmkgc:value;
-            rr:objectMap <disorder_function_2> ;
+            rr:objectMap <disorder_function_3> ;
         ];    
     ].
 
-<disorder_function_2>
-    rr:termType rr:IRI;
+<disorder_function_3>
 
     fnml:functionValue [
         rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample.csv";
@@ -76,8 +101,8 @@
         ];
         rr:predicateObjectMap [
             rr:predicate sdmkgc:value;
-            rr:objectMap [
-                rr:template "https://github.com/SDM-TIB/KGC/entity/{name}"; 
+            rr:objectMap [ 
+                rml:reference "name" 
             ]
         ];
         rr:predicateObjectMap [
