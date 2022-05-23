@@ -12,7 +12,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix rev: <http://purl.org/stuff/rev#>.
 @prefix gtfs: <http://vocab.gtfs.org/terms#>.
-@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix schema: <http://schema.org/>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix eablock: <https://github.com/SDM-TIB/EABlock> .
@@ -34,7 +33,7 @@
     ].
 
 
-<http://mapping.example.com/map_stops_0>
+<http://mapping.example.com/map_stops_1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample-GTFS-STOPS.csv";
                 rml:referenceFormulation ql:CSV
