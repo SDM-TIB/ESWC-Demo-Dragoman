@@ -13,11 +13,11 @@
 @prefix eablock: <https://github.com/SDM-TIB/EABlock> .
 @prefix sdmkgc: <https://github.com/SDM-TIB/KGC/vocab/> .
 
-<disorder>
-	rml:logicalSource [ rml:source "/data/disorder.csv";
+<disorder_name>
+	rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample.csv";
 						rml:referenceFormulation ql:CSV 
 						];
-	rr:subjectMap <disorder_UMLSFunction> ;
+	rr:subjectMap <disorder_function_1> ;
     rr:termType rr:IRI;
 
     rr:predicateObjectMap [
@@ -27,102 +27,69 @@
         ]
     ].	
 
-<drug>
-	rml:logicalSource [ rml:source "/data/drug.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-    rr:subjectMap <drug_FalconUMLS-Function> ;
-    rr:termType rr:IRI;
-
+<disorder_annotation>
+    rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "https://github.com/SDM-TIB/KGC/entity/{ID}";
+        rr:class sdmkgc:Disorder
+    ];
     rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [ 
-            rr:template "https://github.com/SDM-TIB/KGC/vocab/Drug"; 
-        ]
-    ].
-
-
-<drug_disorder>
-	rml:logicalSource [ rml:source "/data/drug_disorder.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "https://github.com/SDM-TIB/KGC/entity/{DrugBankID}_isPrescribedFor_{name}";
-		rr:class sdmkgc:DrugDisorderInteraction
-	];
-	rr:predicateObjectMap [
-		rr:predicate sdmkgc:interactor1;
-		rr:objectMap <drug_FalconUMLS-Function> ;
-	];
-	rr:predicateObjectMap [
-		rr:predicate sdmkgc:interactor2;
-		rr:objectMap <disorder_UMLSFunction> ;
-	].
+        rr:predicate sdmkgc:hasName;
+        rr:objectMap <disorder_function_1> ;
+    ].  
 
 ##########################################################################################
 ######################################## Functions #######################################
 ##########################################################################################
 
-####### Disorder ######
-<disorder_FalconUMLS-Function>
+<disorder_function_1>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/disorder.csv";
+        rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant sdmkgc:falcon_UMLS_CUI_function 
+                rr:constant sdmkgc:tolower
             ]
         ];
         rr:predicateObjectMap [
             rr:predicate sdmkgc:value;
-            rr:objectMap <disorder_replace-Function>
+            rr:objectMap <disorder_function_2> ;
         ];    
     ].
 
-<disorder_replace-Function>
+<disorder_function_2>
+    rr:termType rr:IRI;
+
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/disorder.csv";
+        rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant sdmkgc:replace 
+                rr:constant sdmkgc:replaceValue 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate sdmkgc:value1;
-            rr:objectMap [ 
-                rml:reference "name" 
+            rr:predicate sdmkgc:value;
+            rr:objectMap [
+                rr:template "https://github.com/SDM-TIB/KGC/entity/{name}"; 
             ]
         ];
         rr:predicateObjectMap [
             rr:predicate sdmkgc:value2;
             rr:objectMap [ 
+                rr:constant " " 
+            ]
+        ];  
+        rr:predicateObjectMap [
+            rr:predicate sdmkgc:value3;
+            rr:objectMap [ 
                 rr:constant "_" 
             ]
-        ];     
-    ].
-
-####### Drug ######
-
-<drug_FalconUMLS-Function>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant sdmkgc:falcon_UMLS_CUI_function 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate sdmkgc:value;
-            rr:objectMap [ 
-                rr:template "https://github.com/SDM-TIB/KGC/entity/{DrugName}"; 
-            ] 
-        ];    
+        ];   
     ].
