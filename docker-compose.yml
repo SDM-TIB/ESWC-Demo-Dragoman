@@ -7,3 +7,5 @@ services:
     domainname: eswc
     volumes:
       - ./:/data
+    networks:
+      - eswc2022
