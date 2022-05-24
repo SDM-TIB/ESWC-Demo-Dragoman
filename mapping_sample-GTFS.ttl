@@ -19,7 +19,7 @@
 
 <http://mapping.example.com/map_stops_0>
     a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample-GTFS-STOPS.csv";
+    rml:logicalSource [ rml:source "/data/data-sample-GTFS-STOPS.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap <stop_function_1> ;
@@ -35,7 +35,7 @@
 
 <http://mapping.example.com/map_stops_1>
     a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample-GTFS-STOPS.csv";
+    rml:logicalSource [ rml:source "/data/data-sample-GTFS-STOPS.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
@@ -56,7 +56,7 @@
     rr:termType rr:IRI;
     
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample-GTFS-STOPS.csv";
+        rml:logicalSource [ rml:source "/data/data-sample-GTFS-STOPS.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -80,7 +80,7 @@
 <stop_function_2>
 
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample-GTFS-STOPS.csv";
+        rml:logicalSource [ rml:source "/data/data-sample-GTFS-STOPS.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -98,7 +98,7 @@
 <stop_function_3>
 
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/GitHub/ESWC-Demo-Dragoman/data-sample-GTFS-STOPS.csv";
+        rml:logicalSource [ rml:source "/data/data-sample-GTFS-STOPS.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [

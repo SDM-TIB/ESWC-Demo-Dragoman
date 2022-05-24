@@ -6,7 +6,7 @@ services:
     container_name: dragoman
     domainname: eswc
     volumes:
-      - ./:/data
+      - ./data:/data/
     networks:
       - eswc2022
 networks:
