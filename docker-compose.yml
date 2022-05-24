@@ -9,7 +9,6 @@ services:
       - ./:/data
     networks:
       - eswc2022
-
 networks:
   eswc2022:
     external: true
