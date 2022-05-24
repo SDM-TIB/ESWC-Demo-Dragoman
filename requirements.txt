@@ -1,5 +1,0 @@
-re
-csv
-sys
-os
-unidecode
