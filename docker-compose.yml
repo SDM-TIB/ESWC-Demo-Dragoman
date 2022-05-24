@@ -1,7 +1,7 @@
 version: "1.0"
 services:
   Dragoman:
-    image: sdmtib/dragoman:kgc_eswc2022
+    image: sdmtib/dragoman:ESWC2022
     hostname: dragoman 
     container_name: dragoman
     domainname: eswc
